@@ -1,7 +1,6 @@
 :root{
 	--color-bg: #FEFBF9;
 	--color-accent: #343339;
-
 	--color-fg: black;
 	--color-fg-light: #666;
 	--color-light: white;
@@ -10,7 +9,16 @@
 	--font-family-heading: "Alatsi", sans-serif;
 	--font-family-h2:"Edu TAS Beginner", cursive;
 	--font-family-text: "Newsreader", serif;
+
+	/* 3 suggested sizes later delete the --font size and basae everything from one standard size*/
+
 	--font-size: 1rem;
+
+
+	--size-sm: calc(var(--size-md) * 0.5);
+	--size-md: 1rem
+	--size-lg:  calc(var(--size-md) * 2);
+
 	--line-height: 1.5;
 
 	--space-md: calc(var(--font-size) * 2);
@@ -77,6 +85,7 @@ h2::after {
 	content: "";
 	position: absolute;
 
+	/* let us have 3 sizes for fonts instead of calculating from root */
 	bottom: calc(var(--font-size) * -0.3);
 
 	width: calc(var(--font-size) * 0.5);
