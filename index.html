@@ -13,7 +13,9 @@
 		understand Hannas intent of using <strong> vs. <em> while the author uses <b> continously
 
 		<em> tag follows single words that are highlighted, vs. strong entire sentences
-		the original author uses solely bold to set the style without CSS
+		the original author uses solely bold to set the style without CSS and <i>  incorrectly
+		implemented this approach throughout the article
+
 	-->
 	<head>
 		<!--
@@ -48,8 +50,13 @@
 		<main>
 			<section id="noticing">
 				<h2>Noticing Buildings</h2>
+				<!--
+					Adding <strong> inside Hanna's Blockquote
+					Review Blockquotes again to make a final decision if we want to follow her structure
+				-->
+
 				<blockquote>
-					<p>Consider this statement: All buildings are interesting. There is not a single building that isn’t interesting in some way.</p>
+					<p>Consider this statement: <strong>All buildings are interesting. There is not a single building that isn’t interesting in some way.</strong></p>
 				</blockquote>
 
 				<!--
@@ -65,6 +72,8 @@
 
 					<!--
 						add proper seperation instead of dash "-" replaced with "–"
+						removed the strong highlight to match original article
+						later we can add and remove highlights according to our decisions
 					-->
 					<strong>“good” or “bad,”</strong> or that all buildings are Important Architecture® – only that they are interesting.
 				</p>
