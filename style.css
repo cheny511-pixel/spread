@@ -10,104 +10,66 @@
 	--font-family-h2:"Edu TAS Beginner", cursive;
 	--font-family-text: "Newsreader", serif;
 
-	/* 3 suggested sizes later delete the --font size and basae everything from one standard size*/
-
-	--font-size: 1rem;
-
-
 	--size-sm: calc(var(--size-md) * 0.5);
-	--size-md: 1rem
+	--size-md: 1rem;
 	--size-lg:  calc(var(--size-md) * 2);
-
-	--line-height: 1.5;
-
-	--space-md: calc(var(--font-size) * 2);
+	--size-xl: calc(var(--size-md) * 4);
 }
-
 
 body{
-	background-color:var(--color-bg);
+	background-color: orange;
+	display: flex;
+	font-family: var(--font-family-text);
+	flex-direction: column;
+	align-items: center;
+
 }
 
-h1{
-	margin-block-start: calc(var(--font-size)*2);
-	margin-block-end: calc(var(--font-size)*1);
+
+main{
+	background-color: yellowgreen;
+	display: grid;
+	gap:  var(--size-lg);
+	padding: var(--size-md);
+	max-width: 1080px;
 }
 
-h1 span{
-	display: block;
-	text-align: center;
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border-block
+
+	Picking iPad Mini from Dev Tools - 768px
+*/
+
+section{
+	display: grid;
+	gap:  var(--size-md);
+
+	border-block: var(--size-sm) solid;
+	padding-block: var(--size-md);
+
+	@media (width > 768px) {
+		margin-inline: var(--size-xl);
+		border-inline: var(--size-sm) solid;
+		padding-inline: var(--size-md);
+	}
 }
 
-.title_highlight {
-	font-family: var(--font-family-title) ;
-	font-size: calc(var(--font-size)*3);
-	line-height: 1.3;
-	margin-block-start: calc(var(--font-size)*0.2);
-
-	&::before,
-	&::after{
-				content: "•";
-				font-size: calc(var(--font-size)*1.5);
-			}
-
-	&::before{
-				margin-inline-end: var(--font-size);
-			}
-
-	&::after{
-				margin-inline-start: var(--font-size);
-			}
-}
-
-.title_top, .title_bottom {
-	font-family: var(--font-family-heading);
-	font-size: calc(var(--font-size));
-	letter-spacing: calc(var(--font-size)*0.1);
+h1 {
+	background-color: red;
+	font-size: var(--size-xl);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-box-edge: cap alphabetic; /* Cinch over/under. */
+	text-box-trim: trim-both; /* Which block edges. */
 }
 
 h2 {
-  position: relative;
-  width: fit-content;
-  margin-inline: auto;
-
-  padding-inline: calc(var(--font-size) * 4);
-  margin-block-end: var(--font-size);
-
-  font-family: var(--font-family-h2);
-  font-size: calc(var(--font-size) * 1.5);
-
-  border-block-end: calc(var(--font-size) * 0.1) solid;
+	background-color: green;
+	font-size: var(--size-lg);
+	position: sticky;
+	inset-block-start: 0;
 }
 
-h2::before,
-h2::after {
-	content: "";
-	position: absolute;
-
-	/* let us have 3 sizes for fonts instead of calculating from root */
-	bottom: calc(var(--font-size) * -0.3);
-
-	width: calc(var(--font-size) * 0.5);
-	height: calc(var(--font-size) * 0.5);
-
-	border-block-start: 0.0625rem solid var(--color-accent);
-	border-inline-end: 0.0625rem solid var(--color-accent);
-}
-
-h2::before {
-	left: 0;
-	transform: rotate(-135deg);
-}
-
-h2::after {
-	right: 0;
-	transform: rotate(45deg);
-}
-
-p{
-	font-family:var(--font-family-text);
-	margin-inline: calc(var(--font-size)*2.5);
-	margin-block-end: calc(var(--font-size)*1);
-	line-height: calc(var(--font-size)*1.5);
+p {
+	background-color: yellow;
 }
