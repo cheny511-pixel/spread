@@ -27,6 +27,12 @@
 	--nav-height: 7rem; /* Need to find a more intentional size for this*/
 }
 
+
+	/*
+		navigation and the lines still have one off values
+	*/
+
+
 html {
 	@media (width > 768px) {
 		scroll-padding-top: var(--nav-height);
@@ -109,14 +115,22 @@ nav {
 		@media (width > 768px) {
 			grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
 		}
+
 	}
 
+	/* https://www.google.com/search?q=forcing+wrap+to+include+1+word+per+line+only+css */
+
 	li {
+
+		display: block;
+  		width: min-content;
+
 		padding: 10px;
 		margin: 10px;
 		display: flex;
 		align-items: center;
 		border-left: 1px solid;
+
 	}
 }
 
