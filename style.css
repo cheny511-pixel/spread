@@ -1,5 +1,5 @@
-:root{
-	--color-bg: #FEFBF9;
+:root {
+	--color-bg: #fefbf9;
 	--color-accent: #343339;
 
 	/*
@@ -14,18 +14,26 @@
 
 	--size-sm: calc(var(--size-md) * 0.5);
 	--size-md: 1.25rem;
-	--size-lg:  calc(var(--size-md) * 2);
+	--size-lg: calc(var(--size-md) * 2);
 	--size-xl: calc(var(--size-md) * 4);
 
 	--weight-sm: calc(var(--weight-md) * 0.5);
 	--weight-md: 400;
 	--weight-lg: calc(var(--weight-md) * 2);
+
+	--width-page: 1080px;
+	--nav-height: 7rem; /* Need to find a more intentional size for this*/
 }
 
-body{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+html {
+	@media (width > 768px) {
+		scroll-padding-top: var(--nav-height);
+	}
+}
+
+body {
+	background-color: var(--color-bg);
+	color: var(--color-accent);
 
 	font-family: var(--font-text);
 	font-size: var(--size-md);
@@ -33,85 +41,191 @@ body{
 	line-height: 1.5;
 }
 
-main{
-	display: grid;
-	gap:  var(--size-lg);
-	padding: var(--size-md);
-	max-width: 1080px;
+/* All page regions share the same centered column */
+header,
+nav,
+main,
+footer {
+	max-width: var(--width-page);
+	margin-inline: auto;
+	padding-inline: var(--size-md);
 }
 
-/* 	https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border-block
-	https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border-radius
+header {
+	padding-block: var(--size-lg);
 
-	border-bottom-right-radius: 0
-
-	Picking iPad Mini from Dev Tools - 768px
-*/
-
-
-div.line {
-
-	height: 10px;
-
-    display: grid;
-    grid-template-columns: 3fr 1fr 6fr;
-	background-color: black;
-
-    & span:nth-child(2) {
-		background-color:var(--color-bg);
-
-    }
-
-}
-
-div.door {
-    height: 70px;
-
-    display: grid;
-    grid-template-columns: 3fr 1fr 6fr;
-
-
-    & span:nth-child(2) {
-
-
-
-			border-left: 5px solid black;
-
-			--main-border: 10px solid black;
-			border-right: var(--main-border);
-			border-bottom: var(--main-border);
-			border-bottom-right-radius: 100px;
-    }
-}
-
-section{
-	display: grid;
-	gap:  var(--size-md);
-
-	border-block: var(--size-sm) solid;
-	padding-block: var(--size-md);
-
-	@media (width > 768px) {
-		margin-inline: var(--size-xl);
-		border-inline: var(--size-sm) solid;
-		padding-inline: var(--size-md);
+	/* publication top left, date top right */
+	.publication {
+		display: flex;
+		justify-content: space-between;
+		gap: var(--size-md);
 	}
 }
 
+nav {
+	background-color: var(--color-bg); /* sticky nav needs a background, otherwise the text shines through */
+
+	/* sticky only on desktop, where the nav is a single row */
+	@media (width > 768px) {
+		position: sticky;
+		top: 0;
+	}
+
+	ol {
+		display: grid;
+		grid-template-columns: 1fr; /* 1 column on small phones */
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		@media (width > 390px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (width > 768px) {
+			grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
+		}
+	}
+
+	li {
+		padding: 10px;
+		margin: 10px;
+		display: flex;
+		align-items: center;
+		border-left: 3px dashed;
+	}
+}
+
+main {
+	display: grid;
+	gap: var(--size-lg);
+	padding-block: var(--size-md);
+
+	/*
+		https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:not
+		https://www.google.com/search?q=first+element+target+css+mdn
+		updating nesting
+	*/
+
+	> section {
+		display: grid;
+		gap: var(--size-md);
+
+		@media (width > 768px) {
+			grid-template-columns: 1fr 1fr;
+
+			grid-template-areas:
+				"text  side"
+				"image side";
+
+			&:nth-of-type(even) {
+				grid-template-areas:
+					"side text"
+					"side image";
+
+				&::before {
+					border-right: none;
+					border-left: var(--size-sm) solid;
+				}
+			}
+
+			.text {
+				grid-area: text;
+			}
+
+			.image {
+				grid-area: image;
+			}
+
+			/*
+				https://www.google.com/search?q=can+pseudo+elements+serve+in+grid&sourceid=chrome&source=chrome.ob&ie=UTF-8
+			*/
+			&::before {
+				content: "";
+				grid-area: side;
+				border-right: var(--size-sm) solid;
+			}
+		}
+	}
+
+	/* 	https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border-block
+		https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border-radius
+
+		border-bottom-right-radius: 0
+
+		*/
+
+
+	.text {
+		border-block: var(--size-sm) solid;
+		padding-block: var(--size-md);
+
+		@media (width > 768px) {
+			border-inline: var(--size-sm) solid;
+			padding-inline: var(--size-md);
+		}
+	}
+
+	/*
+		https://www.google.com/search?q=fill+all+space+flex+of+parent
+	*/
+}
+
+footer {
+	padding-block: var(--size-lg);
+
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: var(--size-md);
+}
 
 h1 {
 	font-size: var(--size-xl);
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-
 }
 
 h2 {
 	font-size: var(--size-lg);
-	position: sticky;
-	inset-block-start: 0;
 	text-box-edge: cap alphabetic; /* Cinch over/under. */
 	text-box-trim: trim-both; /* Which block edges. */
 }
 
+
+header {
+	background-color: salmon;
+
+	.publication {
+		background-color: tomato;
+	}
+}
+
+nav {
+	background-color: lightblue;
+}
+
+main {
+	background-color: grey;
+
+	> section {
+		background-color: purple;
+
+		&::before {
+			background-color: yellow;
+		}
+	}
+
+	.text {
+		background-color: orange;
+	}
+
+	.image {
+		background-color: red;
+		height: 200px;
+	}
+}
+
+footer {
+	background-color: lightgreen;
+}
