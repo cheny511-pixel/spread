@@ -1,6 +1,9 @@
 :root {
-	--color-bg: #fefbf9;
-	--color-accent: #343339;
+	--color-bg: #f4eee7;
+	--color-accent: red; /*replace later*/
+	--color-light: white;
+	--color-caption: blue;
+	--color-line: green;
 
 	/*
 		Fonts follow the history of editorials about architectures.
@@ -41,6 +44,21 @@ body {
 	line-height: 1.5;
 }
 
+
+strong {
+	font-weight: var(--weight-lg);
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+sup {
+	vertical-align: super;
+	font-size: smaller;
+}
+
 /* All page regions share the same centered column */
 header,
 nav,
@@ -54,11 +72,18 @@ footer {
 header {
 	padding-block: var(--size-lg);
 
-	/* publication top left, date top right */
-	.publication {
+	.masthead {
 		display: flex;
 		justify-content: space-between;
 		gap: var(--size-md);
+
+		a {
+			font-weight: var(--weight-lg);
+		}
+
+		time {
+			color: var(--color-light);
+		}
 	}
 }
 
@@ -92,7 +117,7 @@ nav {
 		margin: 10px;
 		display: flex;
 		align-items: center;
-		border-left: 3px dashed;
+		border-left: 1px solid;
 	}
 }
 
@@ -113,19 +138,16 @@ main {
 
 		@media (width > 768px) {
 			grid-template-columns: 1fr 1fr;
-
-			grid-template-areas:
-				"text  side"
-				"image side";
+			grid-template-areas: "text side";
 
 			&:nth-of-type(even) {
-				grid-template-areas:
-					"side text"
-					"side image";
+				grid-template-areas: "side text";
 
 				&::before {
+
+					--frame: 4px;
 					border-right: none;
-					border-left: var(--size-sm) solid;
+					border-left: var(--frame) dashed;
 				}
 			}
 
@@ -133,17 +155,14 @@ main {
 				grid-area: text;
 			}
 
-			.image {
-				grid-area: image;
-			}
-
 			/*
 				https://www.google.com/search?q=can+pseudo+elements+serve+in+grid&sourceid=chrome&source=chrome.ob&ie=UTF-8
 			*/
 			&::before {
+				--frame: 4px;
 				content: "";
 				grid-area: side;
-				border-right: var(--size-sm) solid;
+				border-right: var(--frame) dashed;
 			}
 		}
 	}
@@ -155,15 +174,33 @@ main {
 
 		*/
 
-
 	.text {
-		border-block: var(--size-sm) solid;
+		--frame: 4px;
+		display: grid;
+		gap: var(--size-md);
+		border-block: var(--frame) dashed;
 		padding-block: var(--size-md);
 
 		@media (width > 768px) {
-			border-inline: var(--size-sm) solid;
-			padding-inline: var(--size-md);
+			border: none;
 		}
+
+		a {
+			text-decoration: underline;
+		}
+	}
+
+	/*
+		Image descriptions instead of images, drawn like a floor plan:
+		a closed frame with two openings, one in the top line and one in the bottom line.
+	*/
+	figure {
+		--frame: 3px; /* move up to root */
+		border: var(--frame) solid var(--color-light);
+			padding: var(--size-sm) var(--size-md);
+
+		color: var(--color-caption);
+
 	}
 
 	/*
@@ -173,59 +210,44 @@ main {
 
 footer {
 	padding-block: var(--size-lg);
+	border-top: 1px solid var(--color-line);
 
 	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
 	gap: var(--size-md);
+
+	a {
+		color: var(--color-light);
+		font-weight: var(--weight-lg);
+	}
+
+	.author {
+		font-size: var(--size-lg);
+		font-weight: var(--weight-lg);
+	}
+}
+
+
+h1,
+h2 {
+	color: var(--color-light);
+	font-weight: var(--weight-lg);
+	line-height: 1.1;
 }
 
 h1 {
-	font-size: var(--size-xl);
+	font-size: var(--size-lg);
 	display: flex;
 	flex-direction: column;
+
+	@media (width > 768px) {
+		font-size: var(--size-xl);
+	}
 }
 
 h2 {
 	font-size: var(--size-lg);
 	text-box-edge: cap alphabetic; /* Cinch over/under. */
 	text-box-trim: trim-both; /* Which block edges. */
-}
-
-
-header {
-	background-color: salmon;
-
-	.publication {
-		background-color: tomato;
-	}
-}
-
-nav {
-	background-color: lightblue;
-}
-
-main {
-	background-color: grey;
-
-	> section {
-		background-color: purple;
-
-		&::before {
-			background-color: yellow;
-		}
-	}
-
-	.text {
-		background-color: orange;
-	}
-
-	.image {
-		background-color: red;
-		height: 200px;
-	}
-}
-
-footer {
-	background-color: lightgreen;
 }
