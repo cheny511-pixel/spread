@@ -13,13 +13,13 @@
 		understand Hannas intent of using <strong> vs. <em> while the author uses <b> continously
 
 		<em> tag follows single words that are highlighted, vs. strong entire sentences
-		the original author uses solely bold to set the style without CSS and <i>  incorrectly
+		the original author uses solely bold ｚto set the style without CSS and <i>  incorrectly
 		implemented this approach throughout the article
 
 	-->
 	<head>
 		<!--
-			Adding decoding of special characters, viewport and author to head
+			Adding decoding of special characters, vie\wport and author to head
 			Adding link for style.css
 		-->
 		<meta charset="utf-8" />
@@ -114,7 +114,12 @@
 
 			<section id="blindness">
 				<section class="text">
-					<h2>Building Blindness</h2>
+					<!-- adding fig description: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/figure -->
+				<figure>
+					<figcaption>
+						Interesting House, c. 1958. Public Domain (<a href="https://archive.org/details/AladdinReadiCutHomesnotPrefabricated1958/page/n19/mode/2up"> via Archive.org</a>)
+					</figcaption>
+				</figure>
 					<p>
 						Botanists bemoan what is called
 						<a href="https://www.nytimes.com/2017/08/26/opinion/sunday/cure-yourself-of-tree-blindness.html">“Tree Blindness”</a>: a phenomenon where, for most people, trees are only a green background for literally whatever else is going on. Tree Blindness
@@ -144,7 +149,8 @@
 					-->
 						<strong>I would say that we also suffer from building blindness</strong>, which is ostensibly not as serious as Tree Blindness, as the consequences of building blindness are much less dire.
 					</p>
-					<blockquote>
+
+				<blockquote>
 						<!--
 						removing punctation from <strong> as this is not the full sentence
 					-->
@@ -172,6 +178,12 @@
 					Adding <dfn> to indicate an element where a term is to be defined.
 					Wrapping <strong> highlights
 				-->
+
+				<figure>
+					<figcaption>
+						A former Safeway in Sherman, TX. <a href="https://www.flickr.com/photos/romleys/35259217102/in/dateposted/"></a> (<a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY NC-SA 2.0</a>)
+					</figcaption>
+				</figure>
 
 					<p>
 						Those who study
@@ -217,6 +229,12 @@
 				-->
 					<p>At least one person who commented on my “all buildings are interesting” tweet cited the ranch house as an example of a not interesting building.</p>
 
+				<figure>
+					<figcaption>
+						A ranch house c. 1955. Public Domain (<a href="https://archive.org/stream/PeaseHomesThebookofpeasehomesfor19550001#page/n37/mode/2up">via Archive.org</a>)
+					</figcaption>
+				</figure>
+
 					<p>Most of us would look at the building above and be able to say it’s a typical suburban ranch. When pressed for more, some might guess at how old the house is, placing it in a certain moment in time, or maybe guessing at where it’s located. Others might say it’s a ranch house with a front porch, or that the plan is L shaped, or remark on the different architectural details, or building materials.</p>
 
 					<!--
@@ -236,6 +254,8 @@
 					Including the "?" as it is the last punctation of the sentence.
 					Seperating the lower section into multiple <p> tags to match the paragraphs from the original article.
 				-->
+
+				<--! no figcation here but image, we switch the side for paragraph! -->
 
 					<p>These two are both <i>ranch</i> houses, but are <strong>very different from each other</strong>! When asked why they are different, you might say that the first is larger and fancier than the second, or that they use different materials, or that the first has a porch or and the other a front-facing garage.</p>
 					<p>
@@ -262,7 +282,12 @@
 						<strong>Why do we know that these houses are ranches?</strong>
 						<strong>There <a href="https://marywoodarchtheory.files.wordpress.com/2013/10/function-and-the-sign-the-semiotics-of-arch_u-eco.pdf">are certain signs</a> that tell us that this is a ranch</strong>, and not a Cape Cod, nor a McMansion. Still also, without knowing how expensive either house is, <strong>there are certain signs that tell us that the first house is “fancier” than the second house</strong> (<abbr title="example given">e.g.</abbr> the architectural detailing above the porch, the porch itself, the concealed garage). <strong>Above all, what does the ranch house itself mean (or signify) to us?</strong> An American Family Home<sup>™</sup>? (There’s a lot to unpack in that idea alone.) A potential fixer upper? The suffocating isolation of suburbia? American conformity? A bygone era where boys were men <abbr title="et cetera">etc</abbr> <abbr title="et cetera">etc.</abbr>? <i>Cisheteropatriarchy</i>?
 					</p>
-					<p><strong>We can ask many questions</strong>: Do we <em>like</em> the ranch house? Is it a “good” house compared to other house types? Will we ever build ranch houses like these again? Why do ranch houses <strong>exist in the first place</strong>? <strong>What kind of people</strong> do we think lived in either of the two houses, and what do those houses say about them? Is the ranch <em>politicized</em> in any way? What are the politics of the ranch? The economics? The history?</p>
+					<figure>
+					<figcaption>
+						Pease Homes c. 1955. Public Domain (<a href="https://archive.org/details/PeaseHomesThebookofpeasehomesfor19550001/page/44/mode/2up">via Archive.org</a>)
+					</figcaption>
+				</figure>
+				<p><strong>We can ask many questions</strong>: Do we <em>like</em> the ranch house? Is it a “good” house compared to other house types? Will we ever build ranch houses like these again? Why do ranch houses <strong>exist in the first place</strong>? <strong>What kind of people</strong> do we think lived in either of the two houses, and what do those houses say about them? Is the ranch <em>politicized</em> in any way? What are the politics of the ranch? The economics? The history?</p>
 
 					<p>
 						We’ve taken a few minutes to dwell on our two “boring” houses – individually, compared to each other, and to our ideal perfect image of what a ranch house is – and have found
@@ -281,7 +306,7 @@
 
 			<section id="encyclopedia">
 				<section class="text">
-					<h2>Architectural Encyclopedia</h2>
+					<h2>Our own personal architectural encyclopedias</h2>
 					<p>Most of us will say to ourselves, “I’m not an expert on architecture.” Sure, you might not have built a skyscraper or have read Many Important Architecture Books, <strong>but the truth is a lot of us have built up a ton of knowledge about buildings that we see or use every day</strong>.</p>
 
 					<!--
@@ -295,6 +320,12 @@
 						<strong><q>A McMansion is like obscenity: you know it when you see it.</q> Which is true!</strong>
 						If McMansions <em>weren’t</em> an architectural (and cultural) phenomenon, nobody would read this blog. You all know what a McMansion is. You all know what a Ranch is. Most of you know what a strip mall looks like.
 					</p>
+
+				<figure>
+					<figcaption>
+						For those who do not know: here’s a strip mall in California. Photo by <a href="https://www.flickr.com/photos/kkanouse/5845861126/in/photolist-9UzyR5-5qBtaA-aW5Zta-eeabPW-799nYm-BF8UJ-7rzdGW-dNoe9-a7SiPJ-dTkkb4-aawwfL-ruZNrN-4qVnxo-aW16Xc-pueUra-61cmbk-cUcrsQ-7kFADU-cvViPh-bxTiCF-VZAQDe-3LkdmB-8m9tme-c5qus-ho9EDJ-2JTHY-agXhe7-5VWfME-gw2L95-mXySwS-frQEvX-8vQYBs-GfXbi6-4HaKMT-9pWBr5-73CcH7-9dQmC8-dTqTHj-dVpkgd-KQjs-gopA8s-deQtvP-7pPyLU-56b3Rb-jXwNTv-YPMX2V-Vsr8me-7TrJ9L-7GgtsN-b8aLQk"></a>Kent Kanouse (CC BY-NC 2.0)
+					</figcaption>
+				</figure>
 
 					<p>
 						<strong>We’ve built up all kinds of personal databases of buildings.</strong>
@@ -337,6 +368,11 @@
 
 						removing the <em> on longer sentences and use <strong> for authors <b> following our description above
 				-->
+				<figure>
+					<figcaption>
+						An Interesting Kmart Shopping Center in Lima, Ohio (1973) by <a href="https://www.flickr.com/photos/roadsidepictures/189762977/">RoadsidePictures</a> (CC BY-NC 2.0)
+					</figcaption>
+				</figure>
 
 					<p>
 						Throughout my short life, I’ve been fascinated with the mundane, because, like most of us in the USA, <strong>the word mundane describes many of the landscapes we encounter every day</strong>. This long fascination has brought me into contact with <strong>all kinds of interesting subjects</strong> both offline (historic preservationists, books about common houses and office parks, architectural theory) and online (<a href="https://www.flickr.com/groups/876282@N25/"><strong>Flickr groups</strong> with 20-something thousand photos devoted to Kmart</a>; <strong>filmmakers like</strong> <a href="https://www.youtube.com/watch?v=Vjye-_r-0Zk"><strong>Dan Bell</strong>, who meticulously documents dead malls</a>; a <strong>website memorializing</strong> <a href="http://www.hojoland.com/"><strong>Howard Johnson’s</strong> Restaurants</a>, and <em>Tumblrs</em> like <a href="https://www.tumblr.com/y2kaestheticinstitute">@y2kaestheticinstitute</a>).
@@ -372,6 +408,11 @@
 					adding <em>
 					and removing <em> to replace with strong
 				-->
+				<figure>
+					<figcaption>
+						A Ramada that used to be a Howard Johnson’s. <a href="https://www.flickr.com/photos/romleys/28388753889/in/dateposted/">Photo by Charles Hathaway</a> (<a href=""https://creativecommons.org/licenses/by-nc-sa/2.0/"">CC BY NC-SA 2.0</a>)
+					</figcaption>
+				</figure>
 
 					<p><em>Nostalgia</em> plays a major part in why a lot of people participate in “Old Buildings from [Place]” Facebook groups, and yes, the fact that there are strings of excited internet comments reliving childhood memories of shopping at Kmart speaks quite a bit about American culture (and its relationship to architecture, which is interesting.)</p>
 
@@ -387,13 +428,15 @@
 
 			<section id="stories">
 				<section class="text">
-					<h2>Buildings Tell Stories</h2>
-
-					<!--
+						<!--
 					adding <sup> for TM
 					remvoing <em>
 				-->
-
+				<figure>
+					<figcation>
+						The remnants of a Howard Johnson’s. Photo by <a href="https://www.flickr.com/photos/romleys/30340707905/"> Charles Hathaway</a> (<a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY NC-SA 2.0</a>)
+					</figcation>
+				</figure>
 					<p>What we have to say about Important Architecture has been highly developed over a millennium of architectural theory (and practice). <strong>Yet much of architectural theory can’t be applied to the architecture of the everyday.</strong> We all know that a Frank Gehry building an an Applebee’s aren’t the same thing. It’s not that the Applebee’s isn’t special Architecture<sup>™</sup> (somewhere there is the Ur-Applebee’s, the best Applebee’s in the whole world). <strong>It’s that everyday architecture is wholly separate in ideology, conception, execution, and is more flexible (and precarious) than capital-A Architecture.</strong></p>
 
 					<p>Architecture By Famous Architects has <strong>different funding structures</strong> (especially for public or civic buildings), <strong>is imbued with tons of (self-conscious) ideology about What Buildings Mean, and high expectations for execution and performance</strong>. It’s more likely to be preserved, revered, written about, and included in heavy, expensive books. <strong>It is An Art with An History that conceals the nitty-gritty sausage-making process that architects have to deal with on a daily basis.</strong> These are the buildings history keeps, protected by the ancient institution that is the field of architecture.</p>
@@ -409,6 +452,11 @@
 						<strong>These buildings were never intended to be permanent, monumental, or self-conscious.</strong>
 						They were intended to raise families or sell goods; they are investments, nest-eggs, profit-makers, overhead. <strong>The idea of preserving them</strong> (<a href="https://www.smithsonianmag.com/history/googie-architecture-of-the-space-age-122837470/">with a few exceptions</a>) <strong>the same way we preserve Great Works of Architecture is antithetical to their very purpose: making ostensibly temporary, flexible, inexpensive, buildings for living and selling</strong>.
 					</p>
+				<figure>
+					<figcation>
+						Murphy Swift Homes Catalog c.1957. Public Domain (<a href="https://archive.org/details/TheKeyToYourFutureMurphySwiftHomes">via Archive.org</a>)
+					</figcation>
+				</figure>
 
 					<blockquote>
 						<p><strong>That doesn’t mean that everyday buildings aren’t worth studying, documenting, theorizing, visiting, and enjoying.</strong> (It just means that every Kmart doesn’t need to be turned into a museum.)</p>
@@ -422,7 +470,12 @@
 					adding missing links
 					moving the last sentence of a paragraph back to the <p> tag that was inside an <h1> on the website
 				-->
-					<p>
+					<figure>
+					<figcation>
+						Sanger-Harris department store in Texas. The colonnaded entrance serves as a reference to both classical architecture and mid-century <a href="https://en.wikipedia.org/wiki/New_Formalism_(architecture)">Formalism</a>. <a href="https://www.flickr.com/photos/romleys/29210375422/in/dateposted/">Photo by Charles Hathaway</a> (<a href="https://creativecommons.org/licenses/by-nc-sa/2.0/"></a>CC BY NC-SA 2.0)
+					</figcation>
+				</figure>
+				<p>
 						There exist in the world great architectural theorists and historians.
 						<strong>In the same world, there exist McMansion theorists (hi), <a href="https://www.flickr.com/photos/edge_and_corner_wear/">motel postcard</a> archivists, <a href="http://www.searshomes.org/">Sears Home scholars</a>, and countless other historians of the mundane.</strong>
 						Even if we never take a single Kmart photograph or write a single blog post, <strong>all of us have the potential to be nimble interpreters of the world around us. All we need to do is look around.</strong>
