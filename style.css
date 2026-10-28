@@ -258,6 +258,21 @@ main {
 		color: var(--color-accent);
 	}
 
+
+	.hashtags {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: var(--size-sm);
+		padding: var(--size-md);
+		border: var(--line-md) double var(--color-text);
+		font-size: var(--size-md);
+
+		@media screen and (width > 768px) {
+			padding: var(--size-lg);
+			font-size: var(--size-lg);
+		}
+	}
+
 	/*
 		https://www.google.com/search?q=fill+all+space+flex+of+parent
 	*/
@@ -275,22 +290,23 @@ footer {
 		color: var(--color-subtle);
 		font-weight: var(--weight-lg);
 	}
-	}
+}
 
 /* publisher at the top mirrors the author at the bottom: same size and style */
 header .publication a,
 footer .author {
-		font-size: var(--size-lg);
-		font-weight: var(--weight-lg);
-	line-height: 1.1; /* same as the headings could change to variable but only used twice as of now */
+	font-size: var(--size-lg);
+	font-weight: var(--weight-lg);
+	line-height: 1.1;
 	width: min-content; /* one word per line, same as beginning */
 }
 
 h1,
-h2 {
+h2,
+.hashtags {
 	color: var(--color-accent);
 	font-weight: var(--weight-lg);
-	line-height: 1.1;
+	line-height: 1.1; /* same as the headings could change to variable but only used twice as of now */
 }
 
 h1 {
