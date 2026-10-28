@@ -190,8 +190,12 @@ nav {
 
 main {
 	display: grid;
-	gap: var(--size-xl); /* space between the sections */
+	gap: var(--size-lg); /* space between the sections */
 	padding-block-end: var(--size-md);
+
+	@media screen and (width > 768px) {
+		gap: var(--size-md);
+	}
 
 	/*
 		https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:not
@@ -203,7 +207,7 @@ main {
 		display: grid;
 		grid-template-areas: "text"; /*for phone single grid*/
 		gap: var(--size-lg);
-		border-bottom: var(--line-md) double; /* phones: line below each section, the opening lies on it */
+		border-bottom: var(--line-md) solid; /* phones: line below each section, the opening lies on it */
 
 		.text {
 			grid-area: text;
@@ -308,6 +312,7 @@ main {
 		padding: var(--size-md);
 		border: var(--line-md) double var(--color-text);
 		font-size: var(--size-md);
+		margin-block-start:var(--size-md);
 
 		@media screen and (width > 768px) {
 			padding: var(--size-lg);
@@ -380,6 +385,11 @@ h2 {
 	font-size: var(--size-lg);
 	text-box-edge: cap alphabetic; /* Cinch over/under. */
 	text-box-trim: trim-both; /* Which block edges. */
+
+	@media screen and (width > 768px) {
+	font-size: var(--size-xl);
+	margin-block-end:var(--size-md) ;
+	}
 }
 
 figcaption {
