@@ -85,14 +85,12 @@ header {
 	.publication {
 		display: flex;
 		justify-content: space-between;
+		align-items: baseline;
 		gap: var(--size-md);
-
-		a {
-			font-weight: var(--weight-lg);
-		}
 
 		time {
 			color: var(--color-subtle);
+			font-size: smaller; /* <relative-size> value https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-size */
 		}
 	}
 }
@@ -277,11 +275,15 @@ footer {
 		color: var(--color-subtle);
 		font-weight: var(--weight-lg);
 	}
+	}
 
-	.author {
+/* publisher at the top mirrors the author at the bottom: same size and style */
+header .publication a,
+footer .author {
 		font-size: var(--size-lg);
 		font-weight: var(--weight-lg);
-	}
+	line-height: 1.1; /* same as the headings could change to variable but only used twice as of now */
+	width: min-content; /* one word per line, same as beginning */
 }
 
 h1,
