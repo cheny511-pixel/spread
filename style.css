@@ -24,8 +24,8 @@
 	--size-xl: calc(var(--size-lg) * 2);
 	--size-title: 3.75rem; /* another single element that is one off to make mobile first work*/
 
-	--line-md: calc(var(--size-xs) / 2);
-	--line-sm: calc(var(--line-md) / 2);
+	--line-md: calc(var(--size-xs));
+	--line-sm: calc(var(--line-md) / 3);
 
 	--weight-md: 400;
 	--weight-sm: calc(var(--weight-md) / 2);
@@ -127,7 +127,7 @@ nav {
 		margin-block: var(--size-sm);
 		display: flex;
 		align-items: center;
-		border-left: var(--line-sm) solid;
+		border-left: var(--line-md) double;
 
 		/* Add animation for hover later, so there is an intent */
 		a {
@@ -142,7 +142,7 @@ nav {
 			@media (width > 768px) {
 				display: flex;
 				border-left: none;
-				border-right: var(--line-sm) solid;
+				border-right: var(--line-md) double;
 			}
 		}
 	}
@@ -163,7 +163,7 @@ main {
 		display: grid;
 		grid-template-areas: "text"; /*for phone single grid*/
 		gap: var(--size-lg);
-		border-bottom: var(--line-sm) solid; /* phones: line below each section, the opening lies on it */
+		border-bottom: var(--line-md) double; /* phones: line below each section, the opening lies on it */
 
 		.text {
 			grid-area: text;
@@ -194,7 +194,7 @@ main {
 
 				&::before {
 					border-right: none;
-					border-left: var(--line-sm) solid;
+					border-left: var(--line-md) double;
 				}
 
 				/* mirrored: the opening sits in the left line
@@ -216,7 +216,7 @@ main {
 			&::before {
 				content: "";
 				grid-area: side;
-				border-right: var(--line-sm) solid; /* same thickness as the nav lines */
+				border-right: var(--line-md) double; /* same thickness as the nav lines */
 			}
 
 			/* desktop: the opening moves into empty space*/
@@ -257,7 +257,6 @@ main {
 	figure {
 		border: var(--line-md) solid;
 		padding: var(--size-sm) var(--size-md);
-
 		color: var(--color-accent);
 	}
 
