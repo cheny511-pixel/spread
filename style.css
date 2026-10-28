@@ -18,10 +18,10 @@
 
 	--size-md: 1.25rem;
 	--size-sm: calc(var(--size-md) / 2);
-	--size-lg: calc(var(--size-md) * 2);
+	--size-lg: calc(var(--size-md) * 2.2);
 
 	--size-xs: calc(var(--size-sm) / 2);
-	--size-xl: calc(var(--size-lg) * 2);
+	--size-xl: calc(var(--size-lg) * 1.5);
 	--size-title: 3.75rem; /* another single element that is one off to make mobile first work*/
 
 	--line-md: calc(var(--size-xs));
@@ -233,8 +233,8 @@ main {
 				grid-template-areas: "side text";
 
 				&::before {
-					border-right: none;
-					border-left: var(--line-md) double;
+					border-inline-end: none;
+					border-inline-start: var(--line-md) solid;
 				}
 
 				/* mirrored: the opening sits in the left line
@@ -256,7 +256,7 @@ main {
 			&::before {
 				content: "";
 				grid-area: side;
-				border-right: var(--line-md) double; /* same thickness as the nav lines */
+				border-right: var(--line-md) solid /* same thickness as the nav lines */
 			}
 
 			/* desktop: the opening moves into empty space*/
@@ -343,10 +343,12 @@ footer .author {
 	width: min-content; /* one word per line, same as beginning */
 
 	@media screen and (width > 768px) {
-		font-size: var(--size-lg);
+		font-size: var(--size-md);
 	}
+}
 
-
+footer .author {
+	width: max-content;
 }
 
  nav a {
@@ -369,7 +371,8 @@ h1 {
 	margin-block-end:var(--size-xs);
 
 	@media screen and (width > 768px) {
-		font-size: var(--size-xl);
+		font-size: calc(var(--size-title)*1.5);
+		margin-block: var(--size-sm);
 	}
 }
 
@@ -429,4 +432,9 @@ p {
 			}
 		}
 	}
+}
+
+::selection{
+	background-color:var(--color-text) ;
+	color: var(--color-bg);
 }
