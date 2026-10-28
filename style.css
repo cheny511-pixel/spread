@@ -392,6 +392,13 @@ h2 {
 	}
 }
 
+@media screen and (width > 768px) {
+	#noticing h2{
+		width:min-content;
+		/*the minimum intrinsic size of an element.*/
+	}
+}
+
 figcaption {
 	text-wrap: balance;
 }
