@@ -295,10 +295,16 @@ footer {
 /* publisher at the top mirrors the author at the bottom: same size and style */
 header .publication a,
 footer .author {
-	font-size: var(--size-lg);
+	font-size: var(--size-md);
 	font-weight: var(--weight-lg);
 	line-height: 1.1;
 	width: min-content; /* one word per line, same as beginning */
+
+	@media screen and (width > 768px) {
+		font-size: var(--size-lg);
+	}
+
+
 }
 
 h1,
