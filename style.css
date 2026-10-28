@@ -77,6 +77,29 @@ footer {
 	padding-inline: var(--size-md);
 }
 
+/* hover animation: Using transitions when highlighting menus>> https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Transitions/Using */
+a {
+	@media (hover: hover) {
+		transition-delay: 0.2s;
+		transition-duration: 0.5s;
+		transition-property: all;
+		transition-timing-function: ease-out;
+
+	&:hover{
+			background-color: var(--color-text);
+			color: var(--color-bg);
+		}
+	}
+/* focus visible for people who use tab: https://typography-interaction-2627.github.io/topic/advanced-css/#keyboard-navigationfocus */
+
+	&:focus-visible {
+			outline-color: var(--color-text);
+			outline-offset: var(--size-sm);
+			outline-style: solid;
+			outline-width: var(--size-sm);
+		}
+	}
+
 header {
 	display: grid;
 	gap: var(--size-md);
