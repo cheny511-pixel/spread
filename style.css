@@ -338,6 +338,7 @@ h2 {
 		*/
 		> section {
 			display: block;
+			position: relative; /* anchoring to its own section */
 
 			&::after {
 				position: absolute;
