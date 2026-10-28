@@ -3,6 +3,7 @@
 	--color-text: black;
 	--color-accent: #373737;
 	--color-subtle: #838382;
+	
 	/*
 		Fonts follow the history of editorials about architectures.
 		https://www.figma.com/design/pclZ8SLkS67MNF3xW68nRM/Yen---Felix?node-id=8042-62&t=HcXXZPKWLdH7wxFy-0
@@ -158,11 +159,32 @@ main {
 
 	> section {
 		display: grid;
+		grid-template-areas: "text"; /*for phone single grid*/
 		gap: var(--size-lg);
+		border-bottom: var(--line-sm) solid; /* phones: line below each section, the opening lies on it */
+
+		.text {
+			grid-area: text;
+		}
+
+		&::after {
+			content: "";
+			grid-area: text;
+			align-self: end;
+			transform: translate(0, 100%);
+			justify-self: center;
+			width: var(--size-xl);
+			height: var(--size-lg);
+			border: var(--line-sm) dashed;
+			border-top: none;
+			border-radius: 0 0 var(--size-lg) var(--size-lg);
+			background-color: var(--color-bg); /* make opening */
+		}
 
 		@media (width > 768px) {
 			grid-template-columns: 2fr 1fr; /* text 2/3, side 1/3 */
 			grid-template-areas: "text side";
+			border-bottom: none; /* desktop only side lines */
 
 			&:nth-of-type(even) {
 				grid-template-columns: 1fr 2fr;
@@ -170,12 +192,20 @@ main {
 
 				&::before {
 					border-right: none;
-					border-left: var(--line-sm) dashed;
+					border-left: var(--line-sm) solid;
 				}
-			}
 
-			.text {
-				grid-area: text;
+				/* mirrored: the opening sits in the left line
+
+				https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border-radius
+
+				*/
+				&::after {
+					justify-self: start;
+					border-right: var(--line-sm) dashed;
+					border-left: none;
+					border-radius:  0 30px 30px 0;  /* One off value to match the style - no relationship, about the look*/
+				}
 			}
 
 			/*
@@ -184,7 +214,20 @@ main {
 			&::before {
 				content: "";
 				grid-area: side;
-				border-right: var(--line-sm) dashed; /* same thickness as the nav lines */
+				border-right: var(--line-sm) solid; /* same thickness as the nav lines */
+			}
+
+			/* desktop: the opening moves into empty space*/
+			&::after {
+				grid-area: side;
+				justify-self: end;
+				align-self: center;
+				transform: translate(none);
+				width: var(--size-lg);
+				height: var(--size-xl);
+				border: var(--line-sm) dashed;
+				border-right: none;
+				border-radius: 30px 0 0 30px; /* One off value to match the style - no relationship, about the look*/
 			}
 		}
 	}
@@ -195,17 +238,12 @@ main {
 		border-bottom-right-radius: 0
 
 		Old comments for the door - keep if we re-add it, if not remove
-	*/
+		*/
 
 	.text {
 		display: grid;
 		gap: var(--size-md); /* space between paragraphs, quotes and captions */
-		border-block: var(--line-md) dashed;
 		padding-block: var(--size-lg);
-
-		@media (width > 768px) {
-			border: none;
-		}
 
 		a {
 			text-decoration: underline;
@@ -253,7 +291,7 @@ h2 {
 }
 
 h1 {
-	font-size: calc(var(--size-title);
+	font-size: var(--size-title);
 	display: flex;
 	flex-direction: column;
 
