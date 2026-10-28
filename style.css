@@ -3,7 +3,7 @@
 	--color-text: black;
 	--color-accent: #373737;
 	--color-subtle: #838382;
-	
+
 	/*
 		Fonts follow the history of editorials about architectures.
 		https://www.figma.com/design/pclZ8SLkS67MNF3xW68nRM/Yen---Felix?node-id=8042-62&t=HcXXZPKWLdH7wxFy-0
@@ -114,9 +114,9 @@ nav {
 		padding: 0;
 
 		@media (width > 768px) {
-			/* removing unnecessary lines and replacing this with auto for better readability and mantainance */
-			grid-auto-flow: column;
-			grid-auto-columns: 1fr;
+			/* changing this again to align header lines with side lines on destkop */
+			display: flex;
+			justify-content: space-between;
 		}
 	}
 
@@ -135,12 +135,14 @@ nav {
 		}
 
 		/* "Return Entrance" only on desktop */
-		&:first-child {
+		&:last-child {
 			display: none;
 			font-weight: var(--weight-lg);
 
 			@media (width > 768px) {
 				display: flex;
+				border-left: none;
+				border-right: var(--line-sm) solid;
 			}
 		}
 	}
