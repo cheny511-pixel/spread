@@ -3,10 +3,11 @@
 	--color-text: black;
 	--color-accent: #373737;
 	--color-subtle: #838382;
-
 	/*
 		Fonts follow the history of editorials about architectures.
 		https://www.figma.com/design/pclZ8SLkS67MNF3xW68nRM/Yen---Felix?node-id=8042-62&t=HcXXZPKWLdH7wxFy-0
+
+		If we change the font, let us readjust only --size-md
 	*/
 
 	--font-text: "Inter", serif;
@@ -14,25 +15,27 @@
 	--font-title: "Inter", cursive;
 	--font-subtitle: "Inter", sans-serif;
 
-	--size-sm: calc(var(--size-md) * 0.5);
 	--size-md: 1.25rem;
+	--size-sm: calc(var(--size-md) / 2);
 	--size-lg: calc(var(--size-md) * 2);
-	--size-xl: calc(var(--size-md) * 4);
 
-	--weight-sm: calc(var(--weight-md) * 0.5);
+	--size-xs: calc(var(--size-sm) / 2);
+	--size-xl: calc(var(--size-lg) * 2);
+	--size-title: 3.75rem; /* another single element that is one off to make mobile first work*/
+
+	--line-md: calc(var(--size-xs) / 2);
+	--line-sm: calc(var(--line-md) / 2);
+
 	--weight-md: 400;
+	--weight-sm: calc(var(--weight-md) / 2);
 	--weight-lg: calc(var(--weight-md) * 2);
 
 	--width-page: 1080px;
-	--nav-height: 7rem; /* Need to find a more intentional size for this*/
+	--nav-height: 5.5rem; /* single element, skipping relationship */
 }
 
 
-	/*
-		navigation and the lines still have one off values
-	*/
-
-
+/* adjusting the overlay of sticky nav to the section globally */
 html {
 	@media (width > 768px) {
 		scroll-padding-top: var(--nav-height);
@@ -46,9 +49,8 @@ body {
 	font-family: var(--font-text);
 	font-size: var(--size-md);
 	font-weight: var(--weight-md);
-	line-height: 1.5;
+	line-height: 1.75;
 }
-
 
 strong {
 	font-weight: var(--weight-lg);
@@ -75,7 +77,9 @@ footer {
 }
 
 header {
-	padding-block: var(--size-lg);
+	display: grid;
+	gap: var(--size-md);
+	padding-block: var(--size-md);
 
 	.publication {
 		display: flex;
@@ -87,7 +91,7 @@ header {
 		}
 
 		time {
-			color: var(--color-light);
+			color: var(--color-subtle);
 		}
 	}
 }
@@ -103,64 +107,47 @@ nav {
 
 	ol {
 		display: grid;
-		grid-template-columns: 1fr; /* 1 column on small phones */
+		grid-template-columns: repeat(2, 1fr); /* 2 columns on phones, one word per line fits even on small screens */
 		list-style: none;
 		margin: 0;
 		padding: 0;
 
-		li {
-		display: block;
-  		width: min-content;
-
-		padding: 10px;
-		margin: 10px;
-		display: flex;
-		align-items: center;
-		border-left: 1px solid;
-
-		}
-
-		li:first-child {
-			display: none;
-			}
-
-		@media (width > 390px) {
-			grid-template-columns: repeat(2, 1fr);
-		}
-
 		@media (width > 768px) {
-			grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
-
-			li:first-child {
-			display: block;
-			font-weight: var(--weight-lg)
-			}
-
-	}
-
+			/* removing unnecessary lines and replacing this with auto for better readability and mantainance */
+			grid-auto-flow: column;
+			grid-auto-columns: 1fr;
 		}
-
 	}
 
 	/* https://www.google.com/search?q=forcing+wrap+to+include+1+word+per+line+only+css */
-
 	li {
-		display: block;
-  		width: min-content;
-
-		padding: 10px;
-		margin: 10px;
+		width: min-content; /* one word per line */
+		padding-inline: var(--size-sm);
+		margin-block: var(--size-sm);
 		display: flex;
 		align-items: center;
-		border-left: 1px solid;
+		border-left: var(--line-sm) solid;
+
+		/* Add animation for hover later, so there is an intent */
+		a {
+			text-decoration: underline;
+		}
+
+		/* "Return Entrance" only on desktop */
+		&:first-child {
+			display: none;
+			font-weight: var(--weight-lg);
+
+			@media (width > 768px) {
+				display: flex;
+			}
+		}
 	}
-
-
 }
 
 main {
 	display: grid;
-	gap: var(--size-lg);
+	gap: var(--size-xl); /* space between the sections */
 	padding-block: var(--size-md);
 
 	/*
@@ -171,20 +158,19 @@ main {
 
 	> section {
 		display: grid;
-		gap: var(--size-md);
+		gap: var(--size-lg);
 
 		@media (width > 768px) {
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: 2fr 1fr; /* text 2/3, side 1/3 */
 			grid-template-areas: "text side";
 
 			&:nth-of-type(even) {
+				grid-template-columns: 1fr 2fr;
 				grid-template-areas: "side text";
 
 				&::before {
-
-					--frame: 4px;
 					border-right: none;
-					border-left: var(--frame) dashed;
+					border-left: var(--line-sm) dashed;
 				}
 			}
 
@@ -196,10 +182,9 @@ main {
 				https://www.google.com/search?q=can+pseudo+elements+serve+in+grid&sourceid=chrome&source=chrome.ob&ie=UTF-8
 			*/
 			&::before {
-				--frame: 4px;
 				content: "";
 				grid-area: side;
-				border-right: var(--frame) dashed;
+				border-right: var(--line-sm) dashed; /* same thickness as the nav lines */
 			}
 		}
 	}
@@ -209,14 +194,14 @@ main {
 
 		border-bottom-right-radius: 0
 
-		*/
+		Old comments for the door - keep if we re-add it, if not remove
+	*/
 
 	.text {
-		--frame: 4px;
 		display: grid;
-		gap: var(--size-md);
-		border-block: var(--frame) dashed;
-		padding-block: var(--size-md);
+		gap: var(--size-md); /* space between paragraphs, quotes and captions */
+		border-block: var(--line-md) dashed;
+		padding-block: var(--size-lg);
 
 		@media (width > 768px) {
 			border: none;
@@ -227,17 +212,13 @@ main {
 		}
 	}
 
-	/*
-		Image descriptions instead of images, drawn like a floor plan:
-		a closed frame with two openings, one in the top line and one in the bottom line.
-	*/
+	/* Image descriptions instead of images */
+
 	figure {
-		--frame: 3px; /* move up to root */
-		border: var(--frame) solid;
+		border: var(--line-md) solid;
 		padding: var(--size-sm) var(--size-md);
 
 		color: var(--color-accent);
-
 	}
 
 	/*
@@ -254,7 +235,7 @@ footer {
 	gap: var(--size-md);
 
 	a {
-		color: var(--color-light);
+		color: var(--color-subtle);
 		font-weight: var(--weight-lg);
 	}
 
@@ -264,7 +245,6 @@ footer {
 	}
 }
 
-
 h1,
 h2 {
 	color: var(--color-accent);
@@ -273,7 +253,7 @@ h2 {
 }
 
 h1 {
-	font-size: var(--size-lg);
+	font-size: calc(var(--size-title);
 	display: flex;
 	flex-direction: column;
 
