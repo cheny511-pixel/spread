@@ -86,19 +86,19 @@ a {
 		transition-timing-function: ease-out;
 
 	&:hover{
-			background-color: var(--color-text);
-			color: var(--color-bg);
+		background-color: var(--color-text);
+		color: var(--color-bg);
 		}
 	}
 /* focus visible for people who use tab: https://typography-interaction-2627.github.io/topic/advanced-css/#keyboard-navigationfocus */
 
 	&:focus-visible {
-			outline-color: var(--color-text);
-			outline-offset: var(--size-sm);
-			outline-style: solid;
-			outline-width: var(--size-sm);
-		}
+		outline-color: var(--color-text);
+		outline-offset: var(--size-sm);
+		outline-style: solid;
+		outline-width: var(--size-sm);
 	}
+}
 
 header {
 	display: grid;
@@ -141,6 +141,14 @@ nav {
 		}
 	}
 
+	@media print {
+		ol{
+			display: flex;
+			justify-content: flex-start;
+			gap: var(--size-lg);
+		}
+	}
+
 	/* https://www.google.com/search?q=forcing+wrap+to+include+1+word+per+line+only+css */
 	li {
 		width: min-content; /* one word per line */
@@ -155,12 +163,22 @@ nav {
 			text-decoration: underline;
 		}
 
+		@media print {
+			font-size: calc(var(--size-md)*0.8);
+		}
+
 		/* "Return Entrance" only on desktop */
 		&:last-child {
 			display: none;
 			font-weight: var(--weight-lg);
 
 			@media screen and (width > 768px) {
+				display: flex;
+				border-left: none;
+				border-right: var(--line-md) double;
+			}
+
+			@media print {
 				display: flex;
 				border-left: none;
 				border-right: var(--line-md) double;
@@ -275,7 +293,7 @@ main {
 
 	/* Image descriptions instead of images */
 
-	figure {
+	figcaption {
 		border: var(--line-md) solid;
 		padding: var(--size-sm) var(--size-md);
 		color: var(--color-accent);
@@ -336,6 +354,7 @@ h2,
 	color: var(--color-accent);
 	font-weight: var(--weight-lg);
 	line-height: 1.1; /* same as the headings could change to variable but only used twice as of now */
+	text-wrap: balance; /* balance stentence length */
 }
 
 h1 {
@@ -354,6 +373,14 @@ h2 {
 	text-box-trim: trim-both; /* Which block edges. */
 }
 
+figcaption {
+	text-wrap: balance;
+}
+
+p {
+	hyphens: auto;
+}
+
 /*
 	Print: the phone and tablet layout, black on white.
 	desktop media adjusted to "screen and" - paper single column
@@ -365,12 +392,11 @@ h2 {
 		/* --color-text is already black, --color-subtle stays gray */
 	}
 
-	nav {
-		display: none; /* nothing to click on paper */
-	}
+	/* nav {
+		display: none; /* nothing to click on paper
+	} */
 
 	main {
-
 		.text a {
 			text-decoration: none;
 		}
