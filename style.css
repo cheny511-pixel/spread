@@ -36,9 +36,9 @@
 }
 
 
-/* adjusting the overlay of sticky nav to the section globally */
+/* adjusting the overlay of sticky nav to the section globally adding and for print */
 html {
-	@media (width > 768px) {
+	@media screen and (width > 768px) {
 		scroll-padding-top: var(--nav-height);
 	}
 }
@@ -101,7 +101,7 @@ nav {
 	background-color: var(--color-bg); /* sticky nav needs a background, otherwise the text shines through */
 
 	/* sticky only on desktop, where the nav is a single row */
-	@media (width > 768px) {
+	@media screen and (width > 768px) {
 		position: sticky;
 		top: 0;
 	}
@@ -113,7 +113,7 @@ nav {
 		margin: 0;
 		padding: 0;
 
-		@media (width > 768px) {
+		@media screen and (width > 768px) {
 			/* changing this again to align header lines with side lines on destkop */
 			display: flex;
 			justify-content: space-between;
@@ -139,7 +139,7 @@ nav {
 			display: none;
 			font-weight: var(--weight-lg);
 
-			@media (width > 768px) {
+			@media screen and (width > 768px) {
 				display: flex;
 				border-left: none;
 				border-right: var(--line-md) double;
@@ -183,7 +183,7 @@ main {
 			background-color: var(--color-bg); /* make opening */
 		}
 
-		@media (width > 768px) {
+		@media screen and (width > 768px) {
 			grid-template-columns: 2fr 1fr; /* text 2/3, side 1/3 */
 			grid-template-areas: "text side";
 			border-bottom: none; /* desktop only side lines */
@@ -224,7 +224,7 @@ main {
 				grid-area: side;
 				justify-self: end;
 				align-self: center;
-				transform: translate(none);
+				transform: none;
 				width: var(--size-lg);
 				height: var(--size-xl);
 				border: var(--line-sm) dashed;
@@ -296,7 +296,7 @@ h1 {
 	display: flex;
 	flex-direction: column;
 
-	@media (width > 768px) {
+	@media screen and (width > 768px) {
 		font-size: var(--size-xl);
 	}
 }
@@ -305,4 +305,48 @@ h2 {
 	font-size: var(--size-lg);
 	text-box-edge: cap alphabetic; /* Cinch over/under. */
 	text-box-trim: trim-both; /* Which block edges. */
+}
+
+/*
+	Print: the phone and tablet layout, black on white.
+	desktop media adjusted to "screen and" - paper single column
+*/
+@media print {
+	:root {
+		--color-bg: white;
+		--color-accent: black;
+		/* --color-text is already black, --color-subtle stays gray */
+	}
+
+	nav {
+		display: none; /* nothing to click on paper */
+	}
+
+	main {
+
+		.text a {
+			text-decoration: none;
+		}
+
+		/* image description and its frame on one page */
+		figure {
+			break-inside: avoid;
+		}
+
+		/*
+			make entire section a centered block
+		*/
+		> section {
+			display: block;
+
+			&::after {
+				position: absolute;
+				top: 100%; /* right below the section*/
+				inset-inline: 0;
+				margin-inline: auto; /* centered */
+				transform: none;
+				print-color-adjust: exact;
+			}
+		}
+	}
 }
