@@ -428,7 +428,7 @@ h1 {
 
 h2 {
 	font-size: var(--size-lg);
-	text-box-edge: cap alphabetic; /* Cinch over/under. */
+	text-box-edge: cap alphabetic; /* Cinch over/under. Sets top to cap height and bottom to baseline. */
 	text-box-trim: trim-both; /* Which block edges. */
 	font-family: var(--font-title-around);
 
@@ -450,8 +450,8 @@ figcaption {
 }
 
 p {
-	hyphens: auto;
-	text-wrap: pretty;
+	hyphens: auto; /* Automatically hyphenates words when needed. */
+	text-wrap: pretty; /* Improves line wrapping to avoid short final lines. */
 }
 
 section {
