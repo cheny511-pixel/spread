@@ -145,9 +145,10 @@ nav {
 	background-color: var(--color-bg); /* sticky nav needs a background, otherwise the text shines through */
 	font-size: var(--size-nav);
 	/* sticky only on desktop, where the nav is a single row */
+
 	@media screen and (width > 768px) {
 		position: sticky;
-		inset-block-start: 0;
+		inset-block-start: 0; /* Keeps the sticky navigation at the top of the viewport when scrolling. */
 		font-size: var(--size-nav-screen);
 	}
 
