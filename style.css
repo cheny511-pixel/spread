@@ -58,7 +58,7 @@ html {
 	scroll-behavior: smooth;
 
 	@media (prefers-reduced-motion: reduce) {
-			scroll-behavior: auto;
+			scroll-behavior: auto; /* Uses default scrolling behavior, usually jumping directly to the target. */
 		}
 	}
 
