@@ -452,9 +452,9 @@ p {
 
 section {
 	p{
-		border: calc(var(--size-xs)*0.5) dashed transparent;
+		border: var(--width-outline) dashed transparent;
 		padding:var(--size-sm);
-		transition-delay: 0.3s;
+		transition-delay: 0.8s;
 		transition-duration: 0.5s;
 		transition-property: border-color;
 		transition-timing-function: ease;
@@ -509,9 +509,10 @@ section {
 			}
 		}
 		/* can't fix the printed breaking issue */
-		#noticing::after {
+		#noticing::after,
+		#encyclopedia::after {
 			display: none;
-}
+		}
 	}
 
 ::selection{
