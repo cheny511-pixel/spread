@@ -514,8 +514,10 @@ section {
 			display: none;
 		}
 	}
+}
 
 ::selection{
 	background-color:var(--color-text) ;
 	color: var(--color-bg);
 }
+
