@@ -321,10 +321,10 @@ main {
 		@media screen and (width > 768px) {
 			padding: var(--size-lg);
 			font-size: var(--size-lg);
+		}
 
 		@media print{
 			break-inside: avoid;
-		}
 		}
 	}
 
@@ -472,7 +472,6 @@ p {
 			}
 		}
 	}
-}
 
 ::selection{
 	background-color:var(--color-text) ;
