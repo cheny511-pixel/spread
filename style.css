@@ -46,7 +46,7 @@ ChatGPT was used to explain CSS properties,
 clarify syntax, assist with debugging, and
 suggest improvements to responsive layouts.
 
-source: https://chatgpt.com/g/g-p-6aa06fee8d088191b22ee4592c29f62a-typography-and-interaction/c/6ae341db-b078-83ea-9ee4-59334ac8ae8a
+source: https://chatgpt.com/share/6ae36cfe-0bc4-83ea-bfcc-c3dc63b09896
 */
 
 
@@ -154,15 +154,15 @@ nav {
 
 	ol {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr); /* 2 columns on phones, one word per line fits even on small screens */
-		list-style: none;
-		margin: 0;
-		padding: 0;
+		grid-template-columns: repeat(2, 1fr);  /* Creates two equal columns, each taking one fraction of the available space. */
+		list-style: none; /* Removes the default numbering from the ordered list. */
+		margin: 0; /* Removes the browser's default outer spacing. */
+		padding: 0; /* Removes the browser's default inner spacing. */
 
 		@media screen and (width > 768px) {
 			/* changing this again to align header lines with side lines on destkop */
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-between; /* Places the first and last items at opposite ends, with equal spacing between items. */
 		}
 	}
 
