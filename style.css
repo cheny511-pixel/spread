@@ -10,13 +10,8 @@
 
 		If we change the font, let us readjust only --size-md
 	*/
-
-	--font-text: "Inter", serif;
-	--font-header: "Inter", cursive;
-	--font-title: "Inter", cursive;
 	--font-title-highlight: "Molle", cursive;
 	--font-title-around:"Alatsi", sans-serif;
-	--font-subtitle: "Inter", sans-serif;
 
 	--size-md: 1.5rem;
 	--size-sm: calc(var(--size-md) / 2);
@@ -48,7 +43,6 @@ html {
 body {
 	background-color: var(--color-bg);
 	color: var(--color-text);
-
 	font-family: var(--font-title-around);
 	font-size: var(--size-md);
 	font-weight: var(--weight-md);
@@ -60,13 +54,13 @@ i {
 	font-style: italic;
 	font-family: var(--font-title-highlight);
 	font-size: var(--size-lg);
-	color:var(--color-accent);
-	margin-inline-end:var(--size-xs);
+	color: var(--color-accent);
+	margin-inline-end:var(--size-xs); /* The font makes the space after the word appear too narrow. */
 }
 
 sup {
 	vertical-align: super;
-	font-size: smaller;
+	font-size: smaller; /* don't need to be changed in variables :https://chatgpt.com/g/g-p-6aa0c4fa7bac8191b55ac2ada048168a-visual-culture-seminar/c/6ae21cd7-a068-83e9-b443-4594ec6ef4a7*/
 }
 
 /* All page regions share the same centered column */
