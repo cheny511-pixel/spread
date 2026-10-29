@@ -169,7 +169,7 @@ nav {
 	@media print {
 		ol{
 			display: flex;
-			justify-content: flex-start;
+			justify-content: flex-start; /* Aligns all items at the start of the flex container. */
 			gap: var(--size-lg);
 		}
 	}
@@ -180,7 +180,7 @@ nav {
 		padding-inline: var(--size-sm);
 		margin-block: var(--size-sm);
 		display: flex;
-		align-items: center;
+		align-items: center; /* "Vertically" centers the <a> element within the <li> container. */
 		border-inline-start: var(--line-md) double;
 		font-family: var(--font-title-around);
 
