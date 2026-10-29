@@ -1,12 +1,25 @@
+
 <!--
-This file provides context/instruction for your repository! They are written in Markdown (.md), for simple formatting:
-https://www.markdownguide.org/cheat-sheet/
+This file provides context/instructions for your repository.
+Markdown guide: https://www.markdownguide.org/cheat-sheet/
 -->
 
-# Project 2: *Spread*
+# Project 2: *Spread*
 
-Demo/template for our [second projects](https://typography-interaction-2627.github.io/project/2/).
+## About the Project
 
-> **Students will now work together—with a new reading from those selected by the class in [*Manuscript*](https://typography-interaction-2627.github.io/project/1/)—to express a text deliberately and consistently across devices.**
->
-> The goal of this project is twofold: both an effective *collaboration* between partners and also a successful, *responsive* design. Each duo will sketch cooperatively and then implement a joint execution together, via pair programming. The final web page will be responsive for mobile, desktop, and print layouts.
+Our project is inspired by [*Looking Around: All Buildings Are Interesting*](https://mcmansionhell.com/) by Kate Wagner, the creator of McMansion Hell.
+
+The article explores the idea that **all buildings are worth studying and documenting**, regardless of their architectural significance. Wagner draws on examples from mid-century American architecture, including ranch houses, McMansions, and Howard Johnson's restaurants.
+
+We were particularly inspired by the floor plan brochures from the American Dream era. Their visual language and approach to presenting architectural spaces became the foundation for our responsive layout, which reinterprets these printed materials across different screen sizes.
+
+## Visual Design
+
+We used lines, typography variations, and structured layouts to recreate the feeling of architectural brochures from that era. Rather than directly reproducing their grainy textures, we focused on translating their visual characteristics into a cleaner digital experience.
+
+## Interaction & Accessibility
+
+Inspired by the idea of an elevator, we introduced interactive transitions when users navigate between sections, creating a sense of movement through a building.
+
+At the same time, we considered accessibility by supporting users who prefer reduced motion. We also added hover and focus states to navigation elements, making the website more accessible to users who navigate with a keyboard using the Tab key.
