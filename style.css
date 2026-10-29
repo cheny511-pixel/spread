@@ -410,12 +410,12 @@ h1 {
 		font-family: var(--font-title-around);
 		font-size:var(--size-xl);
 	}
-}
 
 	@media screen and (width > 768px) {
 		font-size: calc(var(--size-title)*1.5);
 		margin-block: var(--size-sm);
 	}
+}
 
 h2 {
 	font-size: var(--size-lg);
