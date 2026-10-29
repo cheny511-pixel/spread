@@ -219,7 +219,7 @@ main {
 
 	@media screen and (width > 768px) {
 		gap: var(--size-md);
-	}
+	}/* Reduces spacing to complement the side borders. */
 
 	/*
 		https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:not
@@ -235,7 +235,7 @@ main {
 		border-block-end: var(--line-md) solid; /* phones: line below each section, the opening lies on it */
 
 		.text {
-			grid-area: text;
+			grid-area: text; /* Places elements with the "text" class into the named "text" grid area. */
 		}
 
 		&::after {
