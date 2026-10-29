@@ -471,6 +471,10 @@ p {
 				print-color-adjust: exact;
 			}
 		}
+		/* can't fix the printed breaking issue */
+		#noticing::after {
+			display: none;
+}
 	}
 
 ::selection{
