@@ -314,7 +314,7 @@ main {
 		*/
 
 	.text {
-		display: grid;
+		display: grid; /* Simplifies spacing management and responsive adjustments. */
 		gap: var(--size-md); /* space between paragraphs, quotes and captions */
 		padding-block: var(--size-lg);
 
