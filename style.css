@@ -65,6 +65,7 @@ i {
 	font-family: var(--font-title-highlight);
 	font-size: var(--size-lg);
 	color:var(--color-accent);
+	margin-inline-end:var(--size-xs);
 }
 
 sup {
@@ -164,6 +165,7 @@ nav {
 		display: flex;
 		align-items: center;
 		border-left: var(--line-md) double;
+		font-family: var(--font-title-around);
 
 		/* Add animation for hover later, so there is an intent */
 		a {
@@ -177,7 +179,6 @@ nav {
 		/* "Return Entrance" only on desktop */
 		&:last-child {
 			display: none;
-			font-weight: var(--weight-lg);
 
 			@media screen and (width > 768px) {
 				display: flex;
@@ -404,6 +405,7 @@ h2 {
 	font-size: var(--size-lg);
 	text-box-edge: cap alphabetic; /* Cinch over/under. */
 	text-box-trim: trim-both; /* Which block edges. */
+	font-family: var(--font-title-around);
 
 	@media screen and (width > 768px) {
 	font-size: calc(var(--size-lg)*1.3);
