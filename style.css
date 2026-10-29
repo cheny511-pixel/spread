@@ -55,7 +55,12 @@ html {
 	@media screen and (width > 768px) {
 		scroll-padding-block-start: var(--nav-height);
 	}
-}
+	scroll-behavior: smooth;
+
+	@media (prefers-reduced-motion: reduce) {
+			scroll-behavior: auto;
+		}
+	}
 
 body {
 	background-color: var(--color-bg);
