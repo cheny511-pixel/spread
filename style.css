@@ -456,7 +456,7 @@ p {
 
 section {
 	p{
-		border: var(--width-outline) dashed transparent;
+		border: var(--width-outline) dashed transparent; /* A border cannot use both a color and transparent at the same time. */
 		padding-inline:var(--size-sm);
 		transition-delay: 0.8s;
 		transition-duration: 0.5s;
@@ -466,7 +466,7 @@ section {
 
 		&:target{
 			p {
-				border-color: var(--color-subtle);
+				border-color: var(--color-subtle); /* Changes the paragraph border color when targeted. */
 		}
 	}
 }
