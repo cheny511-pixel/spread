@@ -49,14 +49,10 @@ body {
 	background-color: var(--color-bg);
 	color: var(--color-text);
 
-	font-family: var(--font-text);
+	font-family: var(--font-title-around);
 	font-size: var(--size-md);
 	font-weight: var(--weight-md);
 	line-height: 1.75;
-}
-
-strong {
-	font-weight: var(--weight-lg);
 }
 
 em,
@@ -245,7 +241,7 @@ main {
 
 				&::before {
 					border-inline-end: none;
-					border-inline-start: var(--line-md) solid;
+					border-inline-start: var(--line-md) solid var(--color-accent);
 				}
 
 				/* mirrored: the opening sits in the left line
@@ -267,7 +263,7 @@ main {
 			&::before {
 				content: "";
 				grid-area: side;
-				border-inline-end: var(--line-md) solid /* same thickness as the nav lines */
+				border-inline-end: var(--line-md) solid var(--color-accent);/* same thickness as the nav lines */
 			}
 
 			/* desktop: the opening moves into empty space*/
