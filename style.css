@@ -117,7 +117,7 @@ a {
 
 header {
 	display: grid;
-	gap: var(--size-md);
+	gap: var(--size-md); /* Arranges header elements vertically and enables gap spacing. */
 	padding-block: var(--size-md);
 
 	.publication {
