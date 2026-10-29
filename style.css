@@ -302,7 +302,7 @@ main {
 	/* Image descriptions instead of images */
 
 	figcaption {
-		border: var(--line-md) solid;
+		border: var(--line-md) double;
 		padding: var(--size-sm) var(--size-md);
 		color: var(--color-accent);
 	}
@@ -316,10 +316,15 @@ main {
 		border: var(--line-md) double var(--color-text);
 		font-size: var(--size-md);
 		margin-block-start:var(--size-md);
+		justify-content: center;
 
 		@media screen and (width > 768px) {
 			padding: var(--size-lg);
 			font-size: var(--size-lg);
+
+		@media print{
+			break-inside: avoid;
+		}
 		}
 	}
 
@@ -422,6 +427,7 @@ figcaption {
 
 p {
 	hyphens: auto;
+	text-wrap: pretty;
 }
 
 /*
