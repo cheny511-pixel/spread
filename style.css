@@ -445,6 +445,23 @@ p {
 	text-wrap: pretty;
 }
 
+section {
+	p{
+		border: calc(var(--size-xs)*0.5) dashed transparent;
+		padding:var(--size-sm);
+		transition-delay: 0.3s;
+		transition-duration: 0.5s;
+		transition-property: border-color;
+		transition-timing-function: ease;
+	}
+
+		&:target{
+			p {
+				border-color: var(--color-subtle);
+		}
+	}
+}
+
 /*
 	Print: the phone and tablet layout, black on white.
 	desktop media adjusted to "screen and" - paper single column
