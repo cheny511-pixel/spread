@@ -453,7 +453,7 @@ p {
 section {
 	p{
 		border: var(--width-outline) dashed transparent;
-		padding:var(--size-sm);
+		padding-inline:var(--size-sm);
 		transition-delay: 0.8s;
 		transition-duration: 0.5s;
 		transition-property: border-color;
