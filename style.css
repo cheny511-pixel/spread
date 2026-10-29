@@ -348,7 +348,7 @@ main {
 		}
 
 		@media print{
-			break-inside: avoid;
+			break-inside: avoid; /* Moves the entire box to the next page if it doesn't fit, rather than splitting it. */
 		}
 	}
 
