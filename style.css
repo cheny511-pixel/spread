@@ -226,10 +226,11 @@ main {
 		https://www.google.com/search?q=first+element+target+css+mdn
 		updating nesting
 	*/
-
+	/* ">" means Child Combinator */
 	> section {
 		display: grid;
-		grid-template-areas: "text"; /*for phone single grid*/
+		grid-template-areas: "text";
+		/* for phone single grid. Defines a named area within the CSS Grid layout. */
 		gap: var(--size-lg);
 		border-block-end: var(--line-md) solid; /* phones: line below each section, the opening lies on it */
 
@@ -240,14 +241,14 @@ main {
 		&::after {
 			content: "";
 			grid-area: text;
-			align-self: end;
-			transform: translate(0, 100%);
+			align-self: end; /* align with section bottom */
+			transform: translate(0, 100%); /* Moves the element downward by 100% of its own height. */
 			justify-self: center;
 			width: var(--size-xl);
 			height: var(--size-lg);
 			border: var(--line-sm) dashed;
 			border-block-start: none;
-			border-radius: 0 0 var(--size-lg) var(--size-lg);
+			border-radius: 0 0 var(--size-lg) var(--size-lg); /* top left, top right, bottom right, bottom left */
 			background-color: var(--color-bg); /* make opening */
 		}
 
