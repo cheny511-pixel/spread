@@ -21,6 +21,9 @@
 	--size-xl: calc(var(--size-lg) * 1.5);
 	--size-title: 3.2rem; /* another single element that is one off to make mobile first work*/
 
+	--size-nav:calc(var(--size-sm)*1.5);
+	--size-nav-screen:calc(var(--size-sm)*1.8);
+
 	--line-md: calc(var(--size-xs)*1.5);
 	--line-sm: calc(var(--line-md) / 3);
 
@@ -29,8 +32,22 @@
 	--weight-lg: calc(var(--weight-md) * 2);
 
 	--width-page: 1080px;
+	--width-outline: calc(var(--size-xs)*0.5);
 	--nav-height: 5.5rem; /* single element, skipping relationship */
 }
+
+/*
+LLM Assistance Disclosure
+
+Tool 1: ChatGPT (OpenAI)
+Source: https://chatgpt.com/
+
+ChatGPT was used to explain CSS properties,
+clarify syntax, assist with debugging, and
+suggest improvements to responsive layouts.
+
+source: https://chatgpt.com/g/g-p-6aa06fee8d088191b22ee4592c29f62a-typography-and-interaction/c/6ae341db-b078-83ea-9ee4-59334ac8ae8a
+*/
 
 
 /* adjusting the overlay of sticky nav to the section globally adding and for print */
@@ -60,7 +77,8 @@ i {
 
 sup {
 	vertical-align: super;
-	font-size: smaller; /* don't need to be changed in variables :https://chatgpt.com/g/g-p-6aa0c4fa7bac8191b55ac2ada048168a-visual-culture-seminar/c/6ae21cd7-a068-83e9-b443-4594ec6ef4a7*/
+	font-size: smaller;
+	/* smaller' for <sup> does not need a CSS variable. */
 }
 
 /* All page regions share the same centered column */
@@ -68,8 +86,8 @@ header,
 nav,
 main,
 footer {
-	max-width: var(--width-page);
-	margin-inline: auto;
+	max-width: var(--width-page); /* Limits the maximum width of the element. */
+	margin-inline: auto; /* Centers the element horizontally. */
 	padding-inline: var(--size-md);
 }
 
@@ -86,14 +104,14 @@ a {
 		color: var(--color-bg);
 		}
 	}
-/* focus visible for people who use tab: https://typography-interaction-2627.github.io/topic/advanced-css/#keyboard-navigationfocus */
 
+	/* focus visible for people who use tab: https://typography-interaction-2627.github.io/topic/advanced-css/#keyboard-navigationfocus */
 	&:focus-visible {
 		outline-color: var(--color-text);
 		outline-style: dashed;
 		outline-offset: var(--size-xs);
 		outline-color: var(--color-accent);
-		outline-width: calc(var(--size-xs)*0.5);
+		outline-width: var(--width-outline);
 	}
 }
 
@@ -105,24 +123,24 @@ header {
 	.publication {
 		display: flex;
 		justify-content: space-between;
-		align-items: baseline;
+		align-items: baseline; /*Aligns flex items along their text baselines rather than their edges or centers.*/
 		gap: var(--size-md);
 
 		time {
 			color: var(--color-subtle);
-			font-size: smaller; /* <relative-size> value https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-size */
+			font-size: smaller; /* <relative-size> value https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-size */ /* Sets the font size one step smaller than its parent. */
 		}
 	}
 }
 
 nav {
 	background-color: var(--color-bg); /* sticky nav needs a background, otherwise the text shines through */
-	font-size: calc(var(--size-sm)*1.5);
+	font-size: var(--size-nav);
 	/* sticky only on desktop, where the nav is a single row */
 	@media screen and (width > 768px) {
 		position: sticky;
 		inset-block-start: 0;
-		font-size: calc(var(--size-sm)*1.8)
+		font-size: var(--size-nav-screen);
 	}
 
 	ol {
