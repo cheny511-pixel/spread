@@ -66,6 +66,8 @@ body {
 	line-height: 1.75;
 }
 
+
+/*https://www.google.com/search?q=fix+overflow+wrap*/
 em,
 i {
 	font-style: italic;
@@ -73,6 +75,7 @@ i {
 	font-size: var(--size-lg);
 	color: var(--color-accent);
 	margin-inline-end:var(--size-xs); /* The font makes the space after the word appear too narrow. */
+	overflow-wrap: anywhere;
 }
 
 sup {
