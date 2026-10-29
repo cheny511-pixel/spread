@@ -486,6 +486,10 @@ section {
 		display: none; /* nothing to click on paper
 	} */
 
+	nav li:last-child {
+		display: none;
+	}
+
 	main {
 		.text a {
 			text-decoration: none;
@@ -519,6 +523,8 @@ section {
 		}
 	}
 }
+
+
 
 ::selection{
 	background-color:var(--color-text) ;
