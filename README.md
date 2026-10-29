@@ -8,7 +8,7 @@ Markdown guide: https://www.markdownguide.org/cheat-sheet/
 
 ## About the Project
 
-Our project is inspired by [*Looking Around: All Buildings Are Interesting*](https://mcmansionhell.com/) by Kate Wagner, the creator of McMansion Hell.
+Our project is inspired by [*Looking Around: All Buildings Are Interesting*](https://mcmansionhell.com/post/171906495491/looking-around-all-buildings-are-interesting) by Kate Wagner, the creator of McMansion Hell.
 
 The article explores the idea that **all buildings are worth studying and documenting**, regardless of their architectural significance. Wagner draws on examples from mid-century American architecture, including ranch houses, McMansions, and Howard Johnson's restaurants.
 
